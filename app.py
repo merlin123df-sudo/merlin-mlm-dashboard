@@ -434,7 +434,7 @@ tabs = [
     "⛓️ Supply Chain"
 ]
 
-tab_selection = st.sidebar.radio("", tabs, index=0, label_visibility="collapsed")
+tab_selection = st.sidebar.radio("Navigation", tabs, index=0, label_visibility="collapsed")
 
 # Load data based on selected tab for speed
 with st.spinner("Loading data..."):
