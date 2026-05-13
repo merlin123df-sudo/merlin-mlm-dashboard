@@ -28,7 +28,7 @@ def run_pipeline():
 
         found_any = any(files.values())
         if not found_any:
-            return False, "⚠️ raw_data folder mein koi nayi file nahi mili!"
+            return False, "⚠️ No uploaded raw files found. Use the sidebar upload button and click data sync."
 
         for key, paths in files.items():
             if paths:
@@ -80,7 +80,7 @@ def run_pipeline():
                 shutil.move(paths[0], os.path.join(ARCHIVE_FOLDER, f"{ts}_{os.path.basename(paths[0])}"))
 
         conn.close()
-        return True, "✅ Smart pipeline: Only new records added, duplicates skipped, files archived!"
+        return True, "✅ Smart pipeline: only new records were added, duplicates were skipped, files were archived!"
     except Exception as e:
         if conn: conn.close()
-        return False, f"❌ Pipeline Error: {str(e)}"
+        return False, f"❌ Pipeline error: {str(e)}"
